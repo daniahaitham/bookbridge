@@ -1,0 +1,171 @@
+/* General Page Styles */
+.bd-page {
+  display: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f6f1;
+  padding: 40px;
+  color: #5a5135;
+}
+
+.bd-title {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #8f7f51;
+}
+
+.bd-wrap {
+  
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.bd-info {
+  width: 850px;
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.bd-head {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #8f7f51;
+}
+
+.sep {
+  font-weight: 300;
+}
+
+.bd-desc {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.bd-tags {
+  margin-bottom: 20px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #cfc8b6;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.tag.light {
+  background-color: #f2f1e1;
+}
+
+.bd-owner,
+.bd-note {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.bd-side {
+  width: 300px;
+  flex: 0 0 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.bd-side-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #8f7f51;
+  margin-bottom: 15px;
+}
+
+.bd-frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bd-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bd-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #e2e2e2;
+  border-radius: 8px;
+}
+ 
+
+.reqBook {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #b3eb99;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet and smaller screens */
+@media (max-width: 1024px) {
+  .bd-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bd-info {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .bd-side {
+    width: 100%;
+    max-width: 320px;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .bd-title {
+    font-size: 28px;
+  }
+
+  .bd-head {
+    font-size: 20px;
+  }
+
+  .bd-info {
+    padding: 15px;
+  }
+
+  .bd-side-label {
+    font-size: 16px;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+

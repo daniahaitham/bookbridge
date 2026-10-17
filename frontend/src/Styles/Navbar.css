@@ -1,0 +1,161 @@
+/* =============== NAVBAR (mobile-first) =============== */
+:root { --nav-h: 72px; } 
+
+.bb-nav{
+  position: sticky; top: 0; z-index: 200;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px; /* back | logo | hamburger */
+  align-items: center;
+  gap: 12px;
+  height: var(--nav-h);
+  padding: 0 14px;
+  background: #d9dfc6;                 /* pale green */
+  border-bottom: 1px solid #c7cdb4;
+  box-sizing: border-box;
+  height: var(--nav-h);
+}
+
+/* back button (col 1) */
+.bb-back{
+  background: transparent; border: none; padding: 0; cursor: pointer;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.bb-back img{ width: 22px; height: 22px; opacity: .9; }
+
+/* center logo (col 2) */
+.bb-logo{
+  grid-column: 2; justify-self: center; align-self: center;
+  display: flex; align-items: center; height: 100%;
+}
+.bb-logo img{
+  height: clamp(1000px, 10000vw, 1000px) !important;
+    /* now nice & visible */
+  width: auto;
+  object-fit: contain;
+  opacity: .95;
+}
+
+/* hamburger (col 3), visible on mobile */
+.bb-hamburger{
+  grid-column: 3; justify-self: end;
+  width: 32px; height: 32px; padding: 6px;
+  background: transparent; border: none; cursor: pointer; display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+.bb-hamburger span{
+  display: block; height: 2px; margin: 4px 0; background: #3b3626;
+}
+
+/* desktop center menu (hidden by default on mobile) */
+.bb-menu{
+  display: none; list-style: none;
+  justify-content: center; align-items: center; gap: 12px;
+  margin: 0; padding: 0; font-weight: 600; color: #7a6f4b;
+}
+.bb-menu a, .bb-menu .linklike{
+  text-decoration: none; color: #7a6f4b; font-size: 14px;
+  -webkit-tap-highlight-color: transparent;
+}
+.bb-menu .linklike{
+  background: none; border: none; padding: 0; cursor: pointer; font: inherit;
+}
+.bb-menu .sep{ opacity: .45; user-select: none; }
+
+/* Normalize link states inside navbar (stop blue/purple) */
+.bb-nav a:link,
+.bb-nav a:visited,
+.bb-nav a:hover,
+.bb-nav a:focus,
+.bb-nav a:active {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Optional: highlight active NavLink */
+.bb-menu a.active { text-decoration: underline; text-underline-offset: 3px; }
+
+/* =============== MOBILE PANEL =============== */
+.bb-dim{
+  position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 220;
+}
+
+.linklike { color: #ffb8a1 !important; }
+
+.bb-mobile{
+  position: fixed; top: var(--nav-h); right: 0; width: 78%;
+  max-width: 320px; height: calc(100vh - var(--nav-h));
+  background: #6d6448cb;              /* DARKER BLOCK COLOR */
+  border-left: 1px solid #8d7d55de;
+  box-shadow: -6px 0 18px rgba(139,106,106,0.4);
+  transform: translateX(100%); transition: transform .22s ease;
+  z-index: 230;                       /* above dim */
+  display: flex; flex-direction: column;
+  padding: 10px 16px;
+}
+
+/* open state */
+.bb-mobile.open{ transform: translateX(0); }
+
+/* TEXT LINKS in panel */
+.bb-mobile a,
+.bb-mobile .linklike{
+  display: block;
+  padding: 12px 4px;
+  background: transparent !important;
+  border: none !important; border-radius: 0 !important;
+  color: #f1f0e8;
+  font-weight: 700;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* subtle dividers */
+.bb-mobile a + a,
+.bb-mobile a + .linklike,
+.bb-mobile .linklike + a{
+  border-top: 1px solid #867c58d5;
+}
+
+/* logout special */
+.bb-mobile .linklike.danger{ color: #ffb8a1; }
+
+/* =============== DESKTOP BREAKPOINT =============== */
+@media (min-width: 900px){
+  .bb-nav{ grid-template-columns: 48px 1fr 160px; }
+  .bb-hamburger{ display: none; }
+  .bb-menu{ display: flex; }
+  .bb-logo{ grid-column: 3; justify-self: end; }
+ }
+
+/* smaller phone tweak */
+@media (max-width: 420px){
+  .bb-mobile{ width: 86%; }
+  .bb-mobile a, .bb-mobile .linklike{ padding: 14px 2px; }
+}
+
+
+/* === FINAL OVERRIDES: make the logo bigger === */
+:root { --nav-h: 80px; }           /* taller bar */
+.bb-nav { height: var(--nav-h); }
+
+.bb-logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-self: center;            /* centered on mobile */
+}
+
+.bb-logo img{
+  size: auto;
+  height: clamp(150px, 10vw, 72px) !important;  /* big & responsive */
+  width: auto !important;
+  max-height: calc(var(--nav-h) - 12px) !important; /* keep inside bar */
+}
+
+/* desktop: move logo to the right if you want */
+@media (min-width: 900px){
+  .bb-logo { justify-self: end; }
+  .bb-logo img{ height: clamp(100px, 6vw, 72px) !important; }
+}

@@ -1,0 +1,81 @@
+/* page wrapper */
+.ab-page{
+  background:#fff;
+  min-height:calc(100vh - 0px);
+  padding:24px 16px 40px;
+  color:#5a5135;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* headings */
+.ab-title{
+  text-align:center;
+  font-weight:800;
+  font-size:28px;
+  color:#e88c8c;
+  margin:6px 0 6px;
+}
+.ab-sub{
+  text-align:center;
+  color:#9aa07f;
+  font-weight:700;
+  margin:0 0 18px;
+}
+
+/* form card centered */
+.ab-card{
+  width:100%;
+  max-width:1000px;
+  margin:0 auto;
+  background:#f5f3ec;
+  border-radius:10px;
+  box-shadow:0 2px 14px rgba(0,0,0,.06);
+  padding:24px;
+  display:flex;
+  justify-content:center;
+}
+
+/* form vertical */
+.ab-form{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* inputs full width */
+ .ab-textarea,
+.ab-file span,
+.ab-done{
+  width:100%;
+}
+
+/* checkbox line still inline */
+.ab-check{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  color:#5a5135;
+}
+
+.ab-field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.ab-label{
+  font-weight:700;
+  color:#5a5135;
+}
+.ab-input{
+  width:100%;
+  padding:12px 14px;
+  background:#d9dfc6;
+  border:1px solid #c7cdb4;
+  border-radius:10px;
+  font-weight:600;
+  color:#4f472f;
+}

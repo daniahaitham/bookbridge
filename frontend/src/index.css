@@ -1,0 +1,77 @@
+
+/* Kill Vite starter layout so pages can use full width */
+html, body, #root {
+  width: 100%;
+  max-width: none !important;
+  margin: 0;
+  padding: 0 !important;
+}
+
+body {
+  display: block !important;        /* stop flex centering */
+  place-items: unset !important;
+  min-height: auto !important;
+  background: #f7f6f1;              /* your page bg */
+}
+
+#root {
+  text-align: initial !important;   /* don’t center all text */
+}
+
+/* (optional) remove leftover demo styles */
+.logo, .card, .read-the-docs { all: unset; }
+
+
+a {
+  font-weight: 500;
+  color: #424622;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #3c4123;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #665e2f;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #b1ad74;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #ffc774;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

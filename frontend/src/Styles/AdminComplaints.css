@@ -1,0 +1,98 @@
+/* src/Styles/AdminComplaints.css */
+
+:root{
+  --bg:#fffdf6; --text:#2f3a2f; --muted:#7b8572; --accent:#f39ab2; --border:#cbb178;
+}
+
+.adm-page{
+  /* Force vertical stacking regardless of global styles */
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center;          /* center children horizontally */
+  gap:0px;
+
+  background:var(--bg);
+  color:var(--text);
+  min-height:calc(100vh - 120px);
+  padding:0px 16px 56px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+}
+
+/* Headings block sits ABOVE the table, centered, full width */
+.adm-header{
+  width:100% !important;
+  max-width:1100px;
+  text-align:center;
+  margin:100 auto 8px;
+  float:none !important;       /* kill any floats */
+}
+
+.adm-welcome{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:700;
+  margin:0 0 4px;
+}
+
+.adm-title{
+  color:var(--accent);
+  font-size:24px;
+  font-weight:900;
+  margin:10;
+}
+
+/* Table card centered under the header */
+.adm-tablewrap{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 6px 16px rgba(0,0,0,.06);
+  padding:12px;
+  float:none !important;       /* kill any floats */
+}
+
+/* Plain vertical table */
+.adm-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.adm-table th,
+.adm-table td{
+  border:1px solid var(--border);
+  padding:10px 12px;
+  text-align:left;
+  vertical-align:top;
+}
+
+.adm-table th{
+  background:#fafafa;
+  font-weight:800;
+}
+
+.adm-table td.desc{
+  max-width:420px;
+  white-space:normal;
+  word-wrap:break-word;
+  color:#555;
+}
+
+/* Action buttons inline */
+.actions{
+  white-space:nowrap;
+}
+.btn{
+  background:#f0e5c8;
+  color:#5c4a24;
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:4px 10px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  margin-right:8px;
+}
+.btn.ghost{ background:#fff; color:#333; }
+.btn:hover{ background:#e6d9b5; }

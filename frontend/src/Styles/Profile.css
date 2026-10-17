@@ -1,0 +1,202 @@
+/* === make the whole page a vertical stack === */
+.prof-page{
+  display:flex !important;          /* stack children */
+  flex-direction:column !important;
+  align-items:stretch !important;
+  gap:28px;                          /* space between sections */
+  max-width:1100px;
+  margin:0 auto;
+  padding:36px 18px 56px;
+  background:#fffdf6;
+}
+
+/* titles */
+.prof-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:800;
+  margin:0;
+}
+
+/* === every section is a full-width block === */
+.prof-section{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  float:none !important;             /* kill any floats */
+}
+
+/* if any outer wrapper tries to do row layout, neutralize it */
+.prof-page > *{
+  flex:0 0 auto;                     /* no growing side-by-side */
+}
+
+/* profile fields row */
+.prof-fields{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:100px;
+  margin:8px 0 6px;
+}
+.prof-field{
+  min-width:170px; height:38px; padding:0 14px;
+  background:#eeeee0;
+  border:1.5px solid #d7d1b6;
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:600; color:#404040;
+}
+
+/* book grids stay inside each section, stacked below their headings */
+.prof-heading{
+  text-align:center;
+  font-size:22px; font-weight:800;
+  margin:0 0 14px;
+}
+
+.prof-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(220px, 1fr));
+  gap:28px;
+  justify-items:center;
+  align-items:start;            /* ← add this line */
+  padding:8px 10px 12px;
+}
+
+/* request lists (the last 2 sections) also grid, but they live in their own sections */
+.req-list{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(220px, 1fr));
+  gap:16px;
+  justify-items:center;
+  padding:8px 4px 4px;
+}
+
+/* request card style (unchanged) */
+.req-card{
+  width:240px; ;
+  max-width:100%;
+  background:#fff;
+  border:1.5px solid #d7d1b6;
+  border-radius:12px;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+  padding:12px;
+  gap:12px;
+    display:flex; align-items:center; justify-content:space-between;
+
+}
+
+.book-with-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: 10px;
+}
+
+.card-footer {
+  margin-top: 8px;
+}
+
+.delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #f5c6c6;
+  color: #7a1f1f;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #e89a9a;
+}
+
+.edit-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #e7e0a1;
+  color: #383a30;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.edit-btn:hover {
+  background: #e1e99b;
+}
+
+
+.req-main{ display:flex; flex-direction:column; gap:2px; }
+.req-title{ font-weight:8 00; color:#6e6a4e; font-size:15px; }
+.req-name{ color:#7b8572; font-weight:700; font-size:13px; }
+
+.chip{
+  padding:6px 10px; border-radius:999px; font-weight:800; font-size:12px;
+  text-transform:capitalize; border:1px solid #d7d1b6;
+  background:#f8f6ea; color:#6a6a52;
+}
+.chip.accepted{ background:#e9f4e6; color:#2f6b37; border-color:#b8d6b5; }
+.chip.rejected{ background:#f9e6e6; color:#9b3232; border-color:#e0b8b8; }
+.chip.pending { background:#fff6e5; color:#8a6b2d; border-color:#e6d2a6; }
+
+.req-actions{ display:flex; align-items:center; gap:10px; }
+.btn-circle{
+width:36px; height:36px; border-radius:10px; border:2px solid transparent;
+  background:#f2efe2; color:#5a5135; font-weight:500; cursor:pointer;
+}
+.btn-circle.ok{ width: 90px; text-align: center;  background:#a5fd8d;  border-radius: 50% }
+.btn-circle.danger{  width: 90px;  background:#eba4a4;  border-radius: 50%}
+
+/* responsive: keep sections vertical and make inner grids wrap */
+@media (max-width: 900px){
+  .prof-grid{ grid-template-columns:repeat(2, minmax(220px, 1fr)); }
+  .req-list{  grid-template-columns:repeat(2, minmax(220px, 1fr)); }
+}
+@media (max-width: 560px){
+  .prof-grid, .req-list{ grid-template-columns:1fr; }
+  .prof-fields{ gap:12px; }
+  .prof-field{ min-width:140px; }
+}
+
+/* optional: prevent any horizontal scrollers from old styles */
+.prof-page{ overflow-x:hidden; }
+
+
+/* heading row with action on the right */
+.prof-heading-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; margin:0 0 12px;
+}
+.prof-heading{
+  margin:0; font-size:20px; font-weight:800; text-align:left;
+}
+
+/* + add a book button (matches your palette) */
+.prof-add-btn{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:10px;
+  background:#efe9d2;
+  border:1px solid #cfc8b6;
+  color:#5a5135;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,.07);
+  transition: filter .15s ease, transform .06s ease;
+}
+.prof-add-btn:hover{ filter:brightness(.97); }
+.prof-add-btn:active{ transform:translateY(1px); }
+
+/* mobile: put the button on its own line, full-width if you want */
+@media (max-width:560px){
+  .prof-heading-row{ flex-direction:column; align-items:stretch; }
+  .prof-add-btn{ text-align:center; width:100%; }
+}

@@ -1,0 +1,185 @@
+ :root{
+  --sand:#c9be94; --sand-700:#b1a36f;
+  --overlay: rgba(0,0,0,.38);
+
+}
+
+
+/* make viewport sizing reliable */
+html, body, #root { height: 100%; }
+body { margin: 0; }
+
+/* keep this on the page wrapper so no horizontal scroll */
+.landing{
+  min-height: 100dvh;
+  padding: 0;
+  overflow-x: hidden;   /* important */
+}
+
+/* NEW: bullet-proof full-bleed hero */
+.landing-hero{
+  position: relative;
+  width: 100vw;                 /* exactly the viewport width */
+  left: 50%;                    /* center by viewport */
+  transform: translateX(-50%);  /* pull back by half its own width */
+  min-height: 100dvh;           /* fill the screen height */
+  background: center / cover no-repeat;
+  display: grid;
+  place-items: center;
+  border: 0;
+}
+
+/* keep your overlay */
+.landing-overlay{ position:absolute; inset:0; background: rgba(0,0,0,.38); }
+
+.landing-content{
+  position: relative; z-index: 1;
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: clamp(20px, 5vw, 48px);
+  display: grid; gap: 16px; justify-items: start;
+}
+
+.landing-title{
+  color: #cfd6b5; font-weight: 900; line-height: 1.1;
+  font-size: clamp(28px, 5vw, 56px);
+  margin: 0 0 8px; text-shadow: 0 2px 14px rgba(0,0,0,.5);
+}
+.landing-sub{
+  color: rgba(255,255,255,.85);
+  font-size: clamp(14px, 1.7vw, 18px);
+  margin: 0 0 12px; max-width: 52ch;
+}
+
+/* buttons */
+/* buttons */
+.landing-cta{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;                 /* wrap on small widths */
+  align-items: center;
+  justify-content: flex-start;     /* or center if you prefer */
+}
+
+.landing-cta .btn{
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;            /* consistent vertical centering */
+  align-items: center;
+  justify-content: center;
+
+  min-width: 160px;                /* consistent width */
+  height: 46px;                    /* consistent height */
+  padding: 0 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  text-align: center;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, transform .02s ease;
+}
+
+/* Sign Up (filled beige) */
+.landing-cta .btn-primary{
+  background: var(--sand);
+  color: #333 !important;
+  border: 2px solid transparent;
+}
+.landing-cta .btn-primary:hover{ background: var(--sand-700); }
+
+/* Log In (outlined beige) */
+.landing-cta .btn-ghost{
+  background: transparent;
+  color: var(--sand) !important;
+  border: 2px solid var(--sand);
+}
+.landing-cta .btn-ghost:hover{
+  background: rgba(201,190,148,0.15);
+  color: var(--sand-700) !important;
+  border-color: var(--sand-700);
+}
+
+/* responsive: stack full-width on small screens */
+@media (max-width: 720px){
+  .landing-content{ justify-items: center; text-align: center; }
+  .landing-cta{
+    flex-direction: column;        /* << was grid-auto-flow; use flex column */
+    align-items: stretch;
+    width: 100%;
+  }
+  .landing-cta .btn{
+    width: 100%;
+    max-width: 360px;              /* tidy width on phones */
+    margin: 0 auto;
+    font-size: 1rem;
+    height: 48px;                  /* comfortable touch target */
+  }
+}
+.landing-cta .btn:focus,
+.landing-cta .btn:active {
+  outline: none;
+  color: inherit;
+}
+
+
+/* chips */
+.landing-links{ margin-top:10px; display:grid; grid-auto-flow:column; gap:8px; }
+.chip{ color:#fff; background: rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.35);
+       padding:8px 12px; border-radius:8px; text-decoration:none; }
+.chip:hover{ background: rgba(0,0,0,.45); }
+
+/* responsive */
+@media (max-width: 720px){
+  .landing-content{ justify-items: center; text-align: center; }
+  .landing-cta{ grid-auto-flow: row; width: 100%; }
+  .btn{ width: min(360px, 92vw); text-align: center; }
+  .landing-links{ grid-auto-flow: row; }
+}
+
+
+/* kill link-state blue + keep colors consistent */
+.landing-cta .btn:link,
+.landing-cta .btn:visited,
+.landing-cta .btn:hover,
+.landing-cta .btn:active,
+.landing-cta .btn:focus {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+/* enforce per-variant text color on all states */
+.landing-cta .btn-primary,
+.landing-cta .btn-primary:link,
+.landing-cta .btn-primary:visited,
+.landing-cta .btn-primary:hover,
+.landing-cta .btn-primary:focus,
+.landing-cta .btn-primary:active {
+  color: #333 !important;
+}
+
+.landing-cta .btn-ghost,
+.landing-cta .btn-ghost:link,
+.landing-cta .btn-ghost:visited,
+.landing-cta .btn-ghost:hover,
+.landing-cta .btn-ghost:focus,
+.landing-cta .btn-ghost:active {
+  color: var(--sand) !important;
+}
+
+
+/* optional nicer focus */
+.landing-cta .btn:focus { box-shadow: 0 0 0 3px rgba(201,190,148,.5); }
+
+/* remove mobile tap flash */
+.landing-cta .btn { -webkit-tap-highlight-color: transparent; }
+/* normalize ALL link states for buttons */
+.landing-cta .btn,
+.landing-cta .btn:link,
+.landing-cta .btn:visited,
+.landing-cta .btn:hover,
+.landing-cta .btn:focus,
+.landing-cta .btn:active {
+  color: inherit !important;       /* stop forced blue/purple */
+  text-decoration: none !important;
+  outline: none;
+}
