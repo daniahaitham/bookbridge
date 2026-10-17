@@ -4,7 +4,6 @@ A full-stack web app where people list books they want to lend, sell or exchange
 
 Built as a 3rd-year university project at Al-Hussein Technical University.
 
-> **Screenshots:** add 3–4 images to a `screenshots/` folder (home, book details, profile/requests, admin stats) and link them here.
 
 ## Features
 
